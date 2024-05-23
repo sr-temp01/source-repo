@@ -1,0 +1,23 @@
+name: Sync Repositories
+
+on:
+  push:
+    branches:
+      - main  # adjust branch name if needed
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source repository
+        uses: actions/checkout@v2
+        with:
+          repository: source-repo
+          token: ${{ secrets.SOURCE_REPO_TOKEN }} # Replace with personal access token
+
+      - name: Push to destination repository
+        run: |
+          git config --global user.email "soniyaraibagi@gmail.com"
+          git config --global user.name "sr-temp01"
+          git push https://github.com/sr-temp01/destination-repo.git HEAD:main --force
