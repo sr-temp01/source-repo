@@ -13,7 +13,7 @@ jobs:
       - name: Checkout source repository
         uses: actions/checkout@v2
         with:
-          repository: source-repo
+          repository: ${{ secrets.SOURCE_REPO_OWNER }}/${{ secrets.SOURCE_REPO_NAME }}
           token: ${{ secrets.SOURCE_REPO_TOKEN }} # Replace with personal access token
 
       - name: Push to destination repository
