@@ -20,4 +20,5 @@ jobs:
         run: |
           git config --global user.email "soniyaraibagi@gmail.com"
           git config --global user.name "sr-temp01"
-          git push https://github.com/sr-temp01/destination-repo.git HEAD:main --force
+          git push https://github.com/${{ secrets.DESTINATION_REPO_OWNER }}/${{ secrets.DESTINATION_REPO_NAME }}.git HEAD:main --force
+
